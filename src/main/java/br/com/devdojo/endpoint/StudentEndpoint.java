@@ -42,6 +42,11 @@ public class StudentEndpoint {
         }
         return new ResponseEntity<>(student, HttpStatus.OK);
     }
+    
+    @GetMapping(path = "/findByName/{name}")
+    public ResponseEntity<?> findStudentsByName(@PathVariable String name) {
+        return new ResponseEntity<>(studentDAO.findByNameIgnoreCaseContaining(name), HttpStatus.OK);
+    }
 
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Student student) {
