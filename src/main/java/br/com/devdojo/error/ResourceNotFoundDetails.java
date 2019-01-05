@@ -1,15 +1,19 @@
 package br.com.devdojo.error;
 
 public class ResourceNotFoundDetails {
-    private String title;
-        private int status;
-        private String detail;
-        private long timestamp;
-        private String developerMessage;
 
+    // Atributos -------------------------------------------------------------
+    private String title;
+    private int status;
+    private String detail;
+    private long timestamp;
+    private String developerMessage;
+
+    // Contrutor -------------------------------------------------------------
     public ResourceNotFoundDetails() {
     }
 
+    // Getters and Setters ---------------------------------------------------
     public String getTitle() {
         return title;
     }
@@ -49,17 +53,16 @@ public class ResourceNotFoundDetails {
     public void setDeveloperMessage(String developerMessage) {
         this.developerMessage = developerMessage;
     }
-        
-    
-    
+
+    // Builder -------------------------------------------------------------
     public static final class Builder {
+
         private String title;
         private int status;
         private String detail;
         private long timestamp;
         private String developerMessage;
-        
-        
+
         private Builder() {
         }
 
@@ -102,5 +105,5 @@ public class ResourceNotFoundDetails {
             return resourceNotFoundDetails;
         }
     }
-    
+
 }

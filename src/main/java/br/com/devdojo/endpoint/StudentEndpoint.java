@@ -5,6 +5,7 @@ import br.com.devdojo.error.ResourceNotFoundException;
 import br.com.devdojo.model.Student;
 import br.com.devdojo.repository.StudentRepository;
 import java.util.Optional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,6 +50,7 @@ public class StudentEndpoint {
     }
 
     @PostMapping
+    @Transactional/*(rollbackFor = Exception.class)*/
     public ResponseEntity<?> save(@RequestBody Student student) {
         return new ResponseEntity<>(studentDAO.save(student), HttpStatus.OK);
     }
